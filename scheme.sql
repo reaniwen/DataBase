@@ -21,6 +21,7 @@ create table User (
 	ucity varchar(20),
 	uphone varchar(10),
 	regtime datetime,
+	uscore int(3),
 	primary key (uid)
 );
 
@@ -50,7 +51,7 @@ create table Follow (
 create table Fans (
 	fan varchar(20),
 	follow varchar(20),
-	fantime,
+	fantime datetime,
 	foreign key (fan) references User(uid),
 	foreign key (follow) references Art(aid)
 );
