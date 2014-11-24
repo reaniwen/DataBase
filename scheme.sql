@@ -20,6 +20,7 @@ create table User (
 	uemail varchar(40),
 	ucity varchar(20),
 	uphone varchar(10),
+	regtime datetime,
 	primary key (uid)
 );
 
@@ -41,6 +42,7 @@ create table Genre (
 create table Follow (
 	followee varchar(20),
 	follower varchar(20),
+	foltime datetime,
 	foreign key (follower) references User(uid),
 	foreign key (followee) references User(uid)
 );
@@ -48,6 +50,7 @@ create table Follow (
 create table Fans (
 	fan varchar(20),
 	follow varchar(20),
+	fantime,
 	foreign key (fan) references User(uid),
 	foreign key (follow) references Art(aid)
 );
@@ -68,7 +71,7 @@ create table Location(
 create table Concert (
 	cid int(10),
 	cname varchar(40),
-	dattime datetime,
+	holdtime datetime,
 	price decimal(7,2),
 	location int(10),
 	capacity int(6),
@@ -96,6 +99,7 @@ create table Attend (
 	acid int(10),
 	rate int(1),
 	review varchar(500),
+	reviewtime datetime,
 	foreign key (auid) references User(uid),
 	foreign key (acid) references Concert(cid)
 );
@@ -103,6 +107,7 @@ create table Attend (
 create table Lists (
 	listid int(10),
 	luid varchar(20),
+	moditime datetime,
 	primary key (listid),
 	foreign key (luid) references User(uid)
 );
@@ -117,6 +122,7 @@ create table Content (
 create table FollowList (
 	flistid int(10),
 	fluid varchar(20),
+	folltime datetime,
 	foreign key (flistid) references Lists(listid),
 	foreign key (fluid) references User(uid)
 );
