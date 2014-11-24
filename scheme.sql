@@ -68,15 +68,12 @@ create table Location(
 create table Concert (
 	cid int(10),
 	cname varchar(40),
-	date int(8),
-	time int(4),
+	dattime datetime,
 	price decimal(7,2),
 	location int(10),
 	capacity int(6),
 	available int(6),
-	cgenre int(2),
 	primary key (cid),
-	foreign key (cgenre) references Genre(gid),
 	foreign key (location) references Location(lid)
 );
 
